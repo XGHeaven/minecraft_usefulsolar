@@ -1,23 +1,30 @@
 package cn.xgheaven.usefulsolar.tile.solar;
 
+import cn.xgheaven.usefulsolar.tile.USBlocks;
 import ic2.api.energy.EnergyNet;
 import ic2.api.energy.prefab.BasicSource;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ITickable;
+import net.minecraft.world.EnumSkyBlock;
+import net.minecraft.world.World;
+import net.minecraftforge.client.model.animation.ITimeValue;
 
 /**
  * Created by xgheaven on 6/5/16.
  */
-public class BasicSolarTileEntity extends TileEntity implements ITickable {
+public class BasicSolarTileEntity extends TileEntity implements ITickable{
     protected double generate;
+    protected double maxGen;
     protected double capacity;
     protected int tier;
     private BasicSource source;
+    private int timer = 0;
 
     BasicSolarTileEntity(double capacity, double generate, int tier) {
         super();
-        this.generate = generate;
+        this.maxGen = this.generate = generate;
         this.tier = tier;
         this.capacity = capacity;
         this.source = new BasicSource(this, capacity, tier);
@@ -57,13 +64,13 @@ public class BasicSolarTileEntity extends TileEntity implements ITickable {
     @Override
     public void writeToNBT(NBTTagCompound compound) {
         super.writeToNBT(compound);
-        source.writeToNBT(compound);
+        this.source.writeToNBT(compound);
     }
 
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
-        source.readFromNBT(compound);
+        this.source.readFromNBT(compound);
     }
 
     @Override
@@ -74,7 +81,25 @@ public class BasicSolarTileEntity extends TileEntity implements ITickable {
 
     @Override
     public void update() {
-        source.update();
-        source.addEnergy(this.generate);
+        this.source.update();
+        this.source.addEnergy(this.generate);
+
+        this.timer++;
+        if (this.timer >= 40) { // 2s
+            this.updateGenerate();
+            timer = 0;
+        }
+    }
+
+    private void updateGenerate() {
+        World world = this.worldObj;
+        BlockPos pos = this.getPos().up();
+        int lightSky = world.getLightFor(EnumSkyBlock.SKY, pos);
+
+        if (world.isDaytime()) {
+            this.generate = Math.max(0, (int)(this.maxGen * (lightSky-7) / 8));
+        } else {
+            this.generate = Math.max(0, (int)(this.maxGen * (lightSky-7) / 40));
+        }
     }
 }
