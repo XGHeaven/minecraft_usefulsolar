@@ -1,10 +1,8 @@
 package cn.xgheaven.usefulsolar.recipe;
 
 import cn.xgheaven.usefulsolar.tile.USBlocks;
-import ic2.api.item.ElectricItem;
 import ic2.api.item.IC2Items;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

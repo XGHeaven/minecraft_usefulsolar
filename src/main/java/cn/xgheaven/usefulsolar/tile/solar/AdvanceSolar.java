@@ -3,7 +3,6 @@ package cn.xgheaven.usefulsolar.tile.solar;
 import cn.xgheaven.usefulsolar.tile.USBlocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
  * Created by xgheaven on 6/6/16.

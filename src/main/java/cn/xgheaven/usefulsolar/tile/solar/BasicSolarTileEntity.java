@@ -63,8 +63,7 @@ public abstract class BasicSolarTileEntity extends TileEntity implements ITickab
         this.source.addEnergy(this.generate);
         markDirty();
 
-        System.out.println("Solar");
-
+        // to update generate
         this.timer++;
         if (this.timer >= 40) { // 2s
             this.updateGenerate();

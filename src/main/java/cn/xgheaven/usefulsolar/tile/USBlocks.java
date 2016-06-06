@@ -1,11 +1,7 @@
 package cn.xgheaven.usefulsolar.tile;
 
 import cn.xgheaven.usefulsolar.tile.solar.AdvanceSolar;
-import cn.xgheaven.usefulsolar.tile.solar.AdvanceSolarTileEntity;
-import cn.xgheaven.usefulsolar.tile.solar.BasicSolar;
 import cn.xgheaven.usefulsolar.tile.solar.BasicSolarTileEntity;
-import cn.xgheaven.usefulsolar.tile.test.DataBlock;
-import ic2.api.energy.prefab.BasicSource;
 import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

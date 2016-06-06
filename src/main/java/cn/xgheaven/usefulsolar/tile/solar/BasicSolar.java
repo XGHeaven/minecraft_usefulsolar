@@ -9,7 +9,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -23,10 +22,6 @@ import java.util.List;
  * Created by xgheaven on 6/5/16.
  */
 public abstract class BasicSolar extends Block implements ITileEntityProvider, IWrenchable {
-    private double maxStore;
-    private double generate;
-    private int tier;
-
     BasicSolar(String unlocalizedName) {
         super(Material.rock);
         this.setUnlocalizedName(unlocalizedName);
