@@ -1,11 +1,11 @@
 package cn.xgheaven.usefulsolar.tile.solar;
 
-import net.minecraft.block.BlockContainer;
+import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
@@ -14,35 +14,20 @@ import net.minecraft.world.World;
 /**
  * Created by xgheaven on 6/5/16.
  */
-public class BasicSolar extends BlockContainer {
+public abstract class BasicSolar extends Block implements ITileEntityProvider {
     private double maxStore;
     private double generate;
     private int tier;
 
-    public BasicSolar(String unlocalizeName, double maxStore, double generate, int tier) {
+    BasicSolar(String unlocalizedName) {
         super(Material.rock);
-        this.setUnlocalizedName(unlocalizeName);
+        this.setUnlocalizedName(unlocalizedName);
         this.setCreativeTab(CreativeTabs.tabBlock);
-
-        this.maxStore = maxStore;
-        this.generate = generate;
-        this.tier = tier;
-    }
-
-    @Override
-    public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return null;
-    }
-
-    @Override
-    public TileEntity createTileEntity(World world, IBlockState state) {
-        return new BasicSolarTileEntity(maxStore, generate, tier);
+        this.setHardness(3);
     }
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ) {
-        super.onBlockActivated(worldIn, pos, state, playerIn, side, hitX, hitY, hitZ);
-
         if (worldIn.isRemote) return true;
 
         BasicSolarTileEntity tile = (BasicSolarTileEntity)worldIn.getTileEntity(pos);

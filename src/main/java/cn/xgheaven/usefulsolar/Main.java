@@ -16,7 +16,7 @@ public class Main
     public static final String VERSION = "0.0.0";
 
     // proxy
-    @SidedProxy(clientSide = "cn.xgheaven.usefulsolar.common.proxy.ClientProxy", serverSide = "cn.xgheaven.usrfulsolar.common.proxy.ServerProxy")
+    @SidedProxy(clientSide = "cn.xgheaven.usefulsolar.common.proxy.ClientProxy", serverSide = "cn.xgheaven.usefulsolar.common.proxy.ServerProxy")
     public static CommonProxy proxy;
 
     @EventHandler
@@ -34,6 +34,5 @@ public class Main
     @EventHandler
     public void postInit(FMLPostInitializationEvent e) {
         proxy.postInit(e);
-
     }
 }

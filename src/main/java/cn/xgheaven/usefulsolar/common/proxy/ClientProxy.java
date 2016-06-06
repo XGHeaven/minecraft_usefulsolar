@@ -1,5 +1,6 @@
 package cn.xgheaven.usefulsolar.common.proxy;
 
+import cn.xgheaven.usefulsolar.tile.BlockRender;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -11,6 +12,7 @@ public final class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent e) {
         super.init(e);
+        BlockRender.registerRender();
     }
 
     @Override

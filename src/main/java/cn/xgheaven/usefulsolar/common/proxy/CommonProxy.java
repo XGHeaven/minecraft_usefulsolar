@@ -1,5 +1,6 @@
 package cn.xgheaven.usefulsolar.common.proxy;
 
+import cn.xgheaven.usefulsolar.recipe.USRecipe;
 import cn.xgheaven.usefulsolar.tile.USBlocks;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -14,7 +15,7 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent e) {
-
+        USRecipe.createRecipe();
     }
 
     public void postInit(FMLPostInitializationEvent e) {
