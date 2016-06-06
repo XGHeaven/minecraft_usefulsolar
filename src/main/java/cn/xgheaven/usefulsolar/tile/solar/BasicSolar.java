@@ -1,20 +1,28 @@
 package cn.xgheaven.usefulsolar.tile.solar;
 
+import ic2.api.tile.IWrenchable;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by xgheaven on 6/5/16.
  */
-public abstract class BasicSolar extends Block implements ITileEntityProvider {
+public abstract class BasicSolar extends Block implements ITileEntityProvider, IWrenchable {
     private double maxStore;
     private double generate;
     private int tier;
@@ -40,5 +48,26 @@ public abstract class BasicSolar extends Block implements ITileEntityProvider {
         }
 
         return true;
+    }
+
+    @Override
+    public boolean wrenchCanRemove(World world, BlockPos pos, EntityPlayer player) {
+        return true;
+    }
+
+    @Override
+    public List<ItemStack> getWrenchDrops(World world, BlockPos pos, IBlockState state, TileEntity te, EntityPlayer player, int fortune) {
+        Item item = Item.getItemFromBlock(this);
+        return Arrays.asList(new ItemStack(item));
+    }
+
+    @Override
+    public boolean setFacing(World world, BlockPos pos, EnumFacing newDirection, EntityPlayer player) {
+        return false;
+    }
+
+    @Override
+    public EnumFacing getFacing(World world, BlockPos pos) {
+        return null;
     }
 }
