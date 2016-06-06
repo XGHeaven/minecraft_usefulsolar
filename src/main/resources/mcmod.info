@@ -1,14 +1,14 @@
 [
 {
   "modid": "usefulsolar",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "name": "Useful Solar For IC2",
+  "description": "add some useful solar panel machines",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["XGHeaven"],
+  "credits": "The Forge and FML guys, for making this mods",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
