@@ -6,5 +6,6 @@ package cn.xgheaven.usefulsolar.recipe;
 public final class USRecipe {
     public static void createRecipe() {
         SolarRecipe.createRecipe();
+        FuelRecipe.createRecipe();
     }
 }

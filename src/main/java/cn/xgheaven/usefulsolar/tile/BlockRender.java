@@ -23,5 +23,7 @@ public class BlockRender {
 
     public static void registerRender() {
         reg(USBlocks.advance_solar);
+        reg(USBlocks.lava_block);
+        reg(USBlocks.lava_coal_block);
     }
 }
