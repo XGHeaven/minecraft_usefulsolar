@@ -1,5 +1,7 @@
 package cn.xgheaven.usefulsolar.tile.solar;
 
+import cn.xgheaven.usefulsolar.Main;
+import ic2.api.item.IC2Items;
 import ic2.api.tile.IWrenchable;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -25,7 +27,7 @@ public abstract class BasicSolar extends Block implements ITileEntityProvider, I
     BasicSolar(String unlocalizedName) {
         super(Material.rock);
         this.setUnlocalizedName(unlocalizedName);
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(Main.USTab);
         this.setHardness(3);
     }
 

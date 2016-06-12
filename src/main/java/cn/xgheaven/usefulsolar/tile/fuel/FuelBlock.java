@@ -1,5 +1,6 @@
 package cn.xgheaven.usefulsolar.tile.fuel;
 
+import cn.xgheaven.usefulsolar.Main;
 import cn.xgheaven.usefulsolar.tile.USBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -14,7 +15,7 @@ public class FuelBlock extends Block implements USFuel {
     public FuelBlock(String name, int burnTime) {
         super(Material.rock);
         this.setUnlocalizedName(name);
-        this.setCreativeTab(CreativeTabs.tabBlock);
+        this.setCreativeTab(Main.USTab);
         this.setHardness(2);
         this.setHarvestLevel("pickaxe", 1);
 
